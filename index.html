@@ -752,13 +752,19 @@ function zoomFit(){
 }
 
 // Clear all manual drag positions → back to automatic layout
-function resetLayout(){
+async function resetLayout(){
   const hasManual=Object.values(data.persons).some(p=>p.mx!==undefined);
   if(!hasManual){ toast('Nessuna posizione manuale da reimpostare'); return; }
-  if(!confirm('Riportare tutte le persone alla disposizione automatica?')) return;
+  if(!confirm('Riportare tutte le persone alla disposizione automatica? Verrà salvato per tutti.')) return;
   Object.values(data.persons).forEach(p=>{ delete p.mx; delete p.my; });
-  markDirty(); render(); setTimeout(zoomFit,60);
-  toast('Disposizione automatica ripristinata','ok');
+  render(); setTimeout(zoomFit,60);
+  // Persist immediately so the auto-layout overrides the shared tree for everyone.
+  if(cloudOn()){
+    try{ await cloudSave(data); markSaved(); toast('Disposizione automatica salvata per tutti ✓','ok'); }
+    catch(e){ markDirty(); toast('Riordinato — ma il salvataggio cloud è fallito: '+e.message,'err'); }
+  } else {
+    markDirty(); toast('Disposizione automatica ripristinata','ok');
+  }
 }
 
 // ════════════════════════════════════════════════════════════════
