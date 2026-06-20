@@ -153,6 +153,26 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.2rem,2.6vw,1.9rem);font-weight:6
   .field input{font-size:1.1rem;padding:.65rem .75rem;}  /* ≥16px avoids iOS zoom */
   .mactions .btn{flex:1;text-align:center;padding:.7rem .5rem;}
 }
+
+/* ════════════════════════════════════════════════════════════════
+   LANDSCAPE PHONE (short viewport) — reclaim vertical space.
+   Height is the scarce dimension here, so the top bar is squeezed to
+   the bare minimum: subtitle hidden, header collapsed to a thin line,
+   toolbar in one compact scrollable row.
+   ════════════════════════════════════════════════════════════════ */
+@media (max-height:500px) and (orientation:landscape){
+  .subtitle{display:none;}
+  header{padding:.18rem .8rem;border-bottom:none;}
+  h1{font-size:.92rem;letter-spacing:.03em;}
+  .controls{padding:.28rem .6rem;gap:.32rem;}
+  .btn{font-size:.7rem;padding:.34rem .65rem;}
+  .btn.ghost{font-size:.66rem;}
+  .status{font-size:.68rem;padding:.1rem .4rem;}
+  .help-fab{width:38px;height:38px;font-size:1.05rem;bottom:.5rem;right:.5rem;}
+  /* Hide hints by default to save space, but still let the ? button show them */
+  .hint.hidden{display:none;}
+  .hint-item{font-size:.64rem;padding:.22rem .5rem;}
+}
 </style>
 </head>
 <body>
