@@ -531,8 +531,20 @@ function computeLayout(){
     const a=u.partners[ai];
     if(a && depth[a]===0 && !birthUnion[a] && !seen.has(a)){ topAnchors.push(a); seen.add(a); }
   });
-  // standalone roots (no union) at depth 0
-  roots.forEach(r=>{ if(!seen.has(r) && depth[r]===0){ topAnchors.push(r); seen.add(r); } });
+  // A person is a "spouse somewhere" if they appear as the non-anchor partner
+  // in any union. Such people are placed BESIDE their partner by that partner's
+  // block — they must NOT be added as standalone roots, or they'd be torn away
+  // from their couple (e.g. Erina was being separated from Vitello).
+  function isSpouseSomewhere(pid){
+    return data.unions.some(u=>{
+      const ai=anchorIndex(u);
+      return u.partners[1-ai]===pid;
+    });
+  }
+  // standalone roots (no union, not a spouse) at depth 0
+  roots.forEach(r=>{
+    if(!seen.has(r) && depth[r]===0 && !isSpouseSomewhere(r)){ topAnchors.push(r); seen.add(r); }
+  });
 
   topAnchors.forEach(a=>{
     if(!placed[a]){ layoutBlock(a,0); nextFreeX+=FAM_GAP; }
@@ -545,56 +557,23 @@ function computeLayout(){
     }
   });
 
-  // ---- 5. Pack each generation row, keeping partners glued together ----
-  // We group every couple into a single UNIT so partners always stay side by
-  // side. Each row is then swept left→right and cards (or couple-units) are
-  // pushed apart just enough never to overlap, with the tight partner gap kept
-  // inside each couple. Order within a row follows current x position.
-  const PARTNER_DIST = CW + GAP;           // tight couple spacing
-  const SEP_DIST     = CW + GAP;           // tight spacing between neighbours
-  function partnerOnRow(pid){
-    for(const u of data.unions){
-      if(!u.partners.includes(pid)) continue;
-      const other=u.partners.find(x=>x!==pid);
-      if(other && pos[other] && pos[other].depth===pos[pid].depth) return other;
-    }
-    return null;
-  }
+  // ---- 5. Remove overlaps within each generation (order preserved) ----
+  // The block recursion already lays siblings out contiguously and couples
+  // side-by-side. Here we ONLY nudge cards apart so nothing overlaps, keeping
+  // the existing left→right order intact (so sibling groups stay together).
+  // Connector lines are free to stretch — only the cards must not collide.
+  const SEP_DIST = CW + GAP;               // min center-to-center distance
   const rows = {};
   Object.keys(pos).forEach(id=>{
     const d = pos[id].depth;
     (rows[d] = rows[d] || []).push(id);
   });
   Object.keys(rows).forEach(d=>{
-    // Build units: a couple = [anchor, spouse]; a single = [pid].
-    const used=new Set(), units=[];
-    rows[d].sort((a,b)=>pos[a].x-pos[b].x).forEach(id=>{
-      if(used.has(id)) return;
-      const mate=partnerOnRow(id);
-      if(mate && !used.has(mate)){
-        const pair=[id,mate].sort((a,b)=>pos[a].x-pos[b].x);
-        units.push(pair); used.add(id); used.add(mate);
-      } else { units.push([id]); used.add(id); }
-    });
-    // Order units left→right by their current center.
-    units.sort((A,B)=>centerOf(A)-centerOf(B));
-    function centerOf(unit){ return unit.reduce((s,p)=>s+pos[p].x,0)/unit.length; }
-    // Sweep: place each unit so it clears the previous one.
-    let cursor=-Infinity;
-    units.forEach(unit=>{
-      if(unit.length===2){
-        let lx=pos[unit[0]].x;
-        if(lx < cursor+SEP_DIST) lx = cursor+SEP_DIST;
-        pos[unit[0]].x = lx;
-        pos[unit[1]].x = lx + PARTNER_DIST;   // glue spouse beside anchor
-        cursor = pos[unit[1]].x;
-      } else {
-        let x=pos[unit[0]].x;
-        if(x < cursor+SEP_DIST) x = cursor+SEP_DIST;
-        pos[unit[0]].x = x;
-        cursor = x;
-      }
-    });
+    const row = rows[d].sort((a,b)=>pos[a].x-pos[b].x);
+    for(let i=1;i<row.length;i++){
+      const prev=pos[row[i-1]], cur=pos[row[i]];
+      if(cur.x - prev.x < SEP_DIST) cur.x = prev.x + SEP_DIST;
+    }
   });
 
   // ---- 6. Center the whole tree around x=0 for a tidy initial view ----
