@@ -297,9 +297,9 @@ const DEFAULT = {
 // ════════════════════════════════════════════════════════════════
 //  CONSTANTS
 // ════════════════════════════════════════════════════════════════
-const CW=148, CH=60, GAP=36;          // card width/height, partner gap
-const COL=CW+34;                       // horizontal slot per person
-const ROW=170;                         // vertical distance per generation
+const CW=180, CH=72, GAP=48;          // card width/height, partner gap
+const COL=CW+40;                       // horizontal slot per person
+const ROW=210;                         // vertical distance per generation
 
 // ════════════════════════════════════════════════════════════════
 //  STATE
@@ -488,7 +488,33 @@ function computeLayout(){
     }
   });
 
-  // ---- 5. Apply manual drag overrides ----
+  // ---- 5. Resolve any leftover overlaps within each generation ----
+  // The tidy-tree pass can leave cards in the same row slightly overlapping
+  // when subtrees of very different widths meet. Sweep each row left→right
+  // and push cards apart so there is always a clear MIN_GAP between them.
+  // This keeps generations readable and easy to scan horizontally.
+  const MIN_GAP = CW + 24;                 // min center-to-center distance
+  const rows = {};
+  Object.keys(pos).forEach(id=>{
+    const d = pos[id].depth;
+    (rows[d] = rows[d] || []).push(id);
+  });
+  Object.keys(rows).forEach(d=>{
+    const row = rows[d].sort((a,b)=>pos[a].x-pos[b].x);
+    for(let i=1;i<row.length;i++){
+      const prev=pos[row[i-1]], cur=pos[row[i]];
+      if(cur.x - prev.x < MIN_GAP) cur.x = prev.x + MIN_GAP;
+    }
+  });
+
+  // ---- 6. Center the whole tree around x=0 for a tidy initial view ----
+  const allX = Object.values(pos).map(p=>p.x);
+  if(allX.length){
+    const mid = (Math.min(...allX) + Math.max(...allX)) / 2;
+    Object.values(pos).forEach(p=>{ p.x -= mid; });
+  }
+
+  // ---- 7. Apply manual drag overrides (always win over auto-layout) ----
   allIds.forEach(id=>{
     const p=persons[id];
     if(p && p.mx!==undefined && p.my!==undefined && pos[id]){
