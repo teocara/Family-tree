@@ -1,0 +1,27 @@
+name: Backup family tree from Supabase
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # every day at 2am UTC
+  workflow_dispatch:       # also allow manual trigger from GitHub UI
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch tree from Supabase
+        run: |
+          curl -s "${{ secrets.SUPABASE_URL }}/rest/v1/trees?id=eq.famiglia-principale&select=data" \
+            -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}" \
+            | python3 -c "import sys,json; print(json.dumps(json.load(sys.stdin)[0]['data'], indent=2, ensure_ascii=False))" \
+            > albero-famiglia.json
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add albero-famiglia.json
+          git diff --cached --quiet || git commit -m "Auto-backup: $(date -u '+%Y-%m-%d %H:%M UTC')" && git push
