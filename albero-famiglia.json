@@ -1,13 +1,14 @@
 {
-  "nextP": 69,
-  "nextU": 37,
+  "nextP": 83,
+  "nextU": 46,
   "unions": [
     {
       "id": "u1",
       "children": [
         "p1",
         "p33",
-        "p34"
+        "p34",
+        "p69"
       ],
       "partners": [
         "p30",
@@ -107,6 +108,89 @@
         "p63",
         "p66"
       ]
+    },
+    {
+      "id": "u37",
+      "children": [
+        "p30",
+        "p70"
+      ],
+      "partners": []
+    },
+    {
+      "id": "u38",
+      "children": [
+        "p71",
+        "p72"
+      ],
+      "partners": [
+        "p69"
+      ]
+    },
+    {
+      "id": "u39",
+      "children": [
+        "p73"
+      ],
+      "partners": [
+        "p33"
+      ]
+    },
+    {
+      "id": "u40",
+      "children": [
+        "p74",
+        "p75",
+        "p76",
+        "p77"
+      ],
+      "partners": [
+        "p34"
+      ]
+    },
+    {
+      "id": "u41",
+      "children": [
+        "p78"
+      ],
+      "partners": [
+        "p77"
+      ]
+    },
+    {
+      "id": "u42",
+      "children": [
+        "p79"
+      ],
+      "partners": [
+        "p73"
+      ]
+    },
+    {
+      "id": "u43",
+      "children": [
+        "p80"
+      ],
+      "partners": [
+        "p74"
+      ]
+    },
+    {
+      "id": "u44",
+      "children": [
+        "p81"
+      ],
+      "partners": [
+        "p75"
+      ]
+    },
+    {
+      "id": "u45",
+      "children": [],
+      "partners": [
+        "p6",
+        "p82"
+      ]
     }
   ],
   "persons": {
@@ -124,41 +208,57 @@
     },
     "p3": {
       "id": "p3",
+      "mx": 2150,
+      "my": 407,
       "name": "Raffaele Caramaschi"
     },
     "p4": {
       "id": "p4",
+      "mx": 2313,
+      "my": 398,
       "name": "Chiara Molinari",
       "bridge": "Molinari"
     },
     "p5": {
       "id": "p5",
+      "mx": 2252,
+      "my": 615,
       "name": "Michele Caramaschi"
     },
     "p6": {
       "id": "p6",
+      "mx": 2564,
+      "my": 651,
       "name": "Sara Caramaschi"
     },
     "p11": {
       "id": "p11",
+      "mx": 1702,
+      "my": 15,
       "name": "Giulio Molinari"
     },
     "p12": {
       "id": "p12",
+      "mx": 1876,
+      "my": 13,
       "name": "Edda Molinari"
     },
     "p13": {
       "id": "p13",
+      "mx": 1585,
+      "my": 346,
       "name": "Paolo Molinari"
     },
     "p14": {
       "id": "p14",
+      "mx": 1771,
+      "my": 347,
       "name": "Daniela"
     },
     "p15": {
       "id": "p15",
-      "mx": 2232,
-      "my": 232,
+      "mx": 1688,
+      "my": 474,
       "name": "Penelope Molinari"
     },
     "p25": {
@@ -188,8 +288,8 @@
     },
     "p30": {
       "id": "p30",
-      "mx": 916,
-      "my": -112,
+      "mx": 910,
+      "my": -137,
       "name": "Vitello Caramaschi",
       "note": "nonno"
     },
@@ -208,15 +308,15 @@
     },
     "p33": {
       "id": "p33",
-      "mx": 1056,
-      "my": 46,
+      "mx": 1034,
+      "my": 54,
       "name": "Emilia Caramaschi"
     },
     "p34": {
       "id": "p34",
-      "mx": 1313,
-      "my": 51,
-      "name": "Luigi Caramaschi"
+      "mx": 1231,
+      "my": 50,
+      "name": "Adriana"
     },
     "p52": {
       "id": "p52",
@@ -226,8 +326,8 @@
     },
     "p53": {
       "id": "p53",
-      "mx": 1224,
-      "my": 644,
+      "mx": 1287,
+      "my": 650,
       "name": "Nicola Caramaschi",
       "note": "Suzzara, primo nipote di Paolo Caramaschi",
       "birth": "2026"
@@ -268,6 +368,90 @@
       "mx": 697,
       "my": -81,
       "name": "Edoardo"
+    },
+    "p69": {
+      "id": "p69",
+      "mx": 1432,
+      "my": 45,
+      "name": "Anna"
+    },
+    "p70": {
+      "id": "p70",
+      "mx": 4399,
+      "my": 249,
+      "name": "Don Luigi"
+    },
+    "p71": {
+      "id": "p71",
+      "mx": 3335,
+      "my": 427,
+      "name": "Don Augusto"
+    },
+    "p72": {
+      "id": "p72",
+      "mx": 3049,
+      "my": 574,
+      "name": "Carlo"
+    },
+    "p73": {
+      "id": "p73",
+      "mx": 3416,
+      "my": 515,
+      "name": "Marco Mambrini"
+    },
+    "p74": {
+      "id": "p74",
+      "mx": 3508,
+      "my": 409,
+      "name": "Bruno Borgonovi"
+    },
+    "p75": {
+      "id": "p75",
+      "mx": 3127,
+      "my": 456,
+      "name": "Giovanni Borgonovi"
+    },
+    "p76": {
+      "id": "p76",
+      "mx": 3666,
+      "my": 256,
+      "name": "Mauro Borgonovi"
+    },
+    "p77": {
+      "id": "p77",
+      "mx": 3634,
+      "my": 376,
+      "name": "Anna Borgonovi"
+    },
+    "p78": {
+      "id": "p78",
+      "mx": 3640,
+      "my": 473,
+      "name": "Leonardo Cacciarella"
+    },
+    "p79": {
+      "id": "p79",
+      "mx": 4524,
+      "my": 609,
+      "name": "Filippo"
+    },
+    "p80": {
+      "id": "p80",
+      "mx": 4365,
+      "my": 495,
+      "name": "Federica"
+    },
+    "p81": {
+      "id": "p81",
+      "mx": 4368,
+      "my": 358,
+      "name": "Samuele"
+    },
+    "p82": {
+      "id": "p82",
+      "mx": 2700,
+      "my": 657,
+      "name": "Tomáš Vodák"
     }
   }
 }
