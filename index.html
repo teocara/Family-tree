@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>Albero Genealogico – Famiglia Caramaschi</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;600&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -12,17 +12,17 @@
   --line:#e0d5c0;--card:#ffffff;--card-b:#d8cdb0;--ok:#3a7a3a;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--text);font-family:'EB Garamond',serif;height:100vh;overflow:hidden;}
+body{background:var(--bg);color:var(--text);font-family:'EB Garamond',serif;height:100vh;height:100dvh;overflow:hidden;display:flex;flex-direction:column;}
 body::before{content:'';position:fixed;inset:0;background:
   radial-gradient(ellipse 80% 50% at 50% 0%,rgba(184,148,70,.08) 0%,transparent 60%),
   radial-gradient(ellipse 60% 40% at 20% 100%,rgba(180,160,110,.06) 0%,transparent 50%);
   pointer-events:none;z-index:0;}
 
-header{text-align:center;padding:1.1rem 1.5rem .8rem;position:relative;z-index:2;border-bottom:1px solid var(--line);background:rgba(255,252,245,.92);backdrop-filter:blur(6px);}
+header{flex:0 0 auto;text-align:center;padding:1.1rem 1.5rem .8rem;position:relative;z-index:2;border-bottom:1px solid var(--line);background:rgba(255,252,245,.92);backdrop-filter:blur(6px);}
 .subtitle{font-style:italic;color:var(--text-dim);letter-spacing:.15em;font-size:.88rem;margin-bottom:.2rem;}
 h1{font-family:'Cinzel',serif;font-size:clamp(1.2rem,2.6vw,1.9rem);font-weight:600;color:var(--gold);letter-spacing:.07em;}
 
-.controls{position:relative;z-index:2;display:flex;gap:.5rem;align-items:center;justify-content:center;padding:.6rem 1rem;flex-wrap:wrap;border-bottom:1px solid var(--line);background:rgba(255,252,245,.95);}
+.controls{flex:0 0 auto;position:relative;z-index:2;display:flex;gap:.5rem;align-items:center;justify-content:center;padding:.6rem 1rem;flex-wrap:wrap;border-bottom:1px solid var(--line);background:rgba(255,252,245,.95);}
 .ctrl-group{display:flex;gap:.45rem;align-items:center;}
 .ctrl-divider{width:1px;height:1.4rem;background:var(--line);margin:0 .2rem;}
 .btn{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.06em;padding:.5rem 1.1rem;border:1px solid var(--card-b);background:#fff;color:var(--gold);cursor:pointer;transition:all .18s;border-radius:5px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.06);}
@@ -41,7 +41,7 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.2rem,2.6vw,1.9rem);font-weight:6
 .btn.danger:hover{background:rgba(176,48,48,.07);border-color:#c04040;}
 .status{font-style:italic;font-size:.8rem;color:var(--text-dim);padding:.2rem .7rem;margin-left:.3rem;}
 
-#wrap{position:relative;z-index:1;overflow:hidden;width:100%;height:calc(100vh - 132px);cursor:grab;}
+#wrap{position:relative;z-index:1;overflow:hidden;width:100%;flex:1 1 auto;min-height:0;cursor:grab;}
 #wrap.pan{cursor:grabbing;}
 #inner{position:absolute;top:0;left:0;transform-origin:0 0;}
 
@@ -108,6 +108,51 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.2rem,2.6vw,1.9rem);font-weight:6
 ::-webkit-scrollbar{width:5px;height:5px;}
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--card-b);border-radius:3px;}
+
+/* ════════════════════════════════════════════════════════════════
+   MOBILE / TOUCH (phones ≤ 640px)
+   The whole page is a flex column, so the tree (#wrap) always fills
+   the space left by the header + toolbar — no fixed-height math that
+   breaks when the toolbar wraps. Here we compact the chrome, enlarge
+   tap targets, and make the toolbar scroll sideways instead of piling
+   into many rows that eat the screen.
+   ════════════════════════════════════════════════════════════════ */
+@media (max-width:640px){
+  header{padding:.6rem 1rem .45rem;}
+  .subtitle{font-size:.72rem;letter-spacing:.12em;margin-bottom:.1rem;}
+  h1{font-size:1.15rem;letter-spacing:.04em;}
+
+  /* Toolbar: one row that scrolls horizontally, bigger tap targets */
+  .controls{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;
+    gap:.4rem;padding:.5rem .7rem;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;}
+  .controls::-webkit-scrollbar{display:none;}
+  .ctrl-group{flex:0 0 auto;}
+  .ctrl-divider{display:none;}
+  .btn{font-size:.78rem;padding:.6rem .9rem;flex:0 0 auto;}
+  .btn.ghost{font-size:.72rem;}
+  .status{flex:0 0 auto;font-size:.74rem;}
+
+  /* Larger, easier-to-read cards on small screens */
+  .cname{font-size:1.18rem;}
+  .cdates{font-size:.9rem;}
+
+  /* Bigger floating help + further from thumb edge */
+  .help-fab{width:46px;height:46px;font-size:1.25rem;bottom:.8rem;right:.8rem;}
+
+  /* Hints stack and stay readable */
+  .hint{bottom:.7rem;gap:.35rem;}
+  .hint-item{font-size:.7rem;padding:.28rem .65rem;}
+
+  /* Full-width touch-friendly quick-add toolbar */
+  .quickbar{min-width:210px;}
+  .qb-btn{padding:.6rem .5rem;font-size:.66rem;}
+
+  /* Modals fill the screen width with comfortable padding */
+  .modal{padding:1.3rem;max-width:100%;border-radius:10px;}
+  .field input{font-size:1.1rem;padding:.65rem .75rem;}  /* ≥16px avoids iOS zoom */
+  .mactions .btn{flex:1;text-align:center;padding:.7rem .5rem;}
+}
 </style>
 </head>
 <body>
