@@ -545,16 +545,20 @@ function computeLayout(){
     }
   });
 
-  // ---- 5. Resolve any leftover overlaps within each generation ----
-  // The tidy-tree pass can leave cards in the same row slightly overlapping
-  // when subtrees of very different widths meet. Sweep each row left→right
-  // and push cards apart just enough to never overlap. Couples keep their
-  // tight partner gap (rule: minimize space between partners); everyone else
-  // gets a small breathing margin.
+  // ---- 5. Pack each generation row, keeping partners glued together ----
+  // We group every couple into a single UNIT so partners always stay side by
+  // side. Each row is then swept left→right and cards (or couple-units) are
+  // pushed apart just enough never to overlap, with the tight partner gap kept
+  // inside each couple. Order within a row follows current x position.
   const PARTNER_DIST = CW + GAP;           // tight couple spacing
-  const SEP_DIST     = CW + GAP;           // tight spacing for neighbours too
-  function arePartners(a,b){
-    return data.unions.some(u=>u.partners.includes(a)&&u.partners.includes(b));
+  const SEP_DIST     = CW + GAP;           // tight spacing between neighbours
+  function partnerOnRow(pid){
+    for(const u of data.unions){
+      if(!u.partners.includes(pid)) continue;
+      const other=u.partners.find(x=>x!==pid);
+      if(other && pos[other] && pos[other].depth===pos[pid].depth) return other;
+    }
+    return null;
   }
   const rows = {};
   Object.keys(pos).forEach(id=>{
@@ -562,12 +566,35 @@ function computeLayout(){
     (rows[d] = rows[d] || []).push(id);
   });
   Object.keys(rows).forEach(d=>{
-    const row = rows[d].sort((a,b)=>pos[a].x-pos[b].x);
-    for(let i=1;i<row.length;i++){
-      const prev=pos[row[i-1]], cur=pos[row[i]];
-      const need = arePartners(row[i-1],row[i]) ? PARTNER_DIST : SEP_DIST;
-      if(cur.x - prev.x < need) cur.x = prev.x + need;
-    }
+    // Build units: a couple = [anchor, spouse]; a single = [pid].
+    const used=new Set(), units=[];
+    rows[d].sort((a,b)=>pos[a].x-pos[b].x).forEach(id=>{
+      if(used.has(id)) return;
+      const mate=partnerOnRow(id);
+      if(mate && !used.has(mate)){
+        const pair=[id,mate].sort((a,b)=>pos[a].x-pos[b].x);
+        units.push(pair); used.add(id); used.add(mate);
+      } else { units.push([id]); used.add(id); }
+    });
+    // Order units left→right by their current center.
+    units.sort((A,B)=>centerOf(A)-centerOf(B));
+    function centerOf(unit){ return unit.reduce((s,p)=>s+pos[p].x,0)/unit.length; }
+    // Sweep: place each unit so it clears the previous one.
+    let cursor=-Infinity;
+    units.forEach(unit=>{
+      if(unit.length===2){
+        let lx=pos[unit[0]].x;
+        if(lx < cursor+SEP_DIST) lx = cursor+SEP_DIST;
+        pos[unit[0]].x = lx;
+        pos[unit[1]].x = lx + PARTNER_DIST;   // glue spouse beside anchor
+        cursor = pos[unit[1]].x;
+      } else {
+        let x=pos[unit[0]].x;
+        if(x < cursor+SEP_DIST) x = cursor+SEP_DIST;
+        pos[unit[0]].x = x;
+        cursor = x;
+      }
+    });
   });
 
   // ---- 6. Center the whole tree around x=0 for a tidy initial view ----
