@@ -1,0 +1,273 @@
+{
+  "nextP": 69,
+  "nextU": 37,
+  "unions": [
+    {
+      "id": "u1",
+      "children": [
+        "p1",
+        "p33",
+        "p34"
+      ],
+      "partners": [
+        "p30",
+        "p31"
+      ]
+    },
+    {
+      "id": "u2",
+      "children": [
+        "p2"
+      ],
+      "partners": [
+        "p32",
+        "p68"
+      ]
+    },
+    {
+      "id": "u3",
+      "children": [
+        "p3",
+        "p25"
+      ],
+      "partners": [
+        "p1",
+        "p2"
+      ]
+    },
+    {
+      "id": "u4",
+      "children": [
+        "p4",
+        "p13"
+      ],
+      "partners": [
+        "p11",
+        "p12"
+      ]
+    },
+    {
+      "id": "u6",
+      "children": [
+        "p5",
+        "p6",
+        "p63"
+      ],
+      "partners": [
+        "p3",
+        "p4"
+      ]
+    },
+    {
+      "id": "u7",
+      "children": [
+        "p27",
+        "p28"
+      ],
+      "partners": [
+        "p25",
+        "p26"
+      ]
+    },
+    {
+      "id": "u8",
+      "children": [
+        "p15"
+      ],
+      "partners": [
+        "p13",
+        "p14"
+      ]
+    },
+    {
+      "id": "u31",
+      "children": [],
+      "partners": [
+        "p6",
+        "p52"
+      ]
+    },
+    {
+      "id": "u32",
+      "children": [
+        "p53"
+      ],
+      "partners": [
+        "p28",
+        "p54"
+      ]
+    },
+    {
+      "id": "u36",
+      "children": [
+        "p65",
+        "p67"
+      ],
+      "partners": [
+        "p63",
+        "p66"
+      ]
+    }
+  ],
+  "persons": {
+    "p1": {
+      "id": "p1",
+      "mx": 841,
+      "my": 40,
+      "name": "Alberto Caramaschi"
+    },
+    "p2": {
+      "id": "p2",
+      "mx": 677,
+      "my": 45,
+      "name": "Rosa Rossato"
+    },
+    "p3": {
+      "id": "p3",
+      "name": "Raffaele Caramaschi"
+    },
+    "p4": {
+      "id": "p4",
+      "name": "Chiara Molinari",
+      "bridge": "Molinari"
+    },
+    "p5": {
+      "id": "p5",
+      "name": "Michele Caramaschi"
+    },
+    "p6": {
+      "id": "p6",
+      "name": "Sara Caramaschi"
+    },
+    "p11": {
+      "id": "p11",
+      "name": "Giulio Molinari"
+    },
+    "p12": {
+      "id": "p12",
+      "name": "Edda Molinari"
+    },
+    "p13": {
+      "id": "p13",
+      "name": "Paolo Molinari"
+    },
+    "p14": {
+      "id": "p14",
+      "name": "Daniela"
+    },
+    "p15": {
+      "id": "p15",
+      "mx": 2232,
+      "my": 232,
+      "name": "Penelope Molinari"
+    },
+    "p25": {
+      "id": "p25",
+      "mx": 1028,
+      "my": 402,
+      "name": "Paolo Caramaschi"
+    },
+    "p26": {
+      "id": "p26",
+      "mx": 1198,
+      "my": 396,
+      "name": "Manuela"
+    },
+    "p27": {
+      "id": "p27",
+      "mx": 999,
+      "my": 499,
+      "name": "Matteo Caramaschi",
+      "note": "figlio di Paolo"
+    },
+    "p28": {
+      "id": "p28",
+      "mx": 1166,
+      "my": 505,
+      "name": "Andrea Caramaschi"
+    },
+    "p30": {
+      "id": "p30",
+      "mx": 916,
+      "my": -112,
+      "name": "Vitello Caramaschi",
+      "note": "nonno"
+    },
+    "p31": {
+      "id": "p31",
+      "mx": 1118,
+      "my": -107,
+      "name": "Erina",
+      "note": "nonna"
+    },
+    "p32": {
+      "id": "p32",
+      "mx": 550,
+      "my": -92,
+      "name": "Santina Rossato"
+    },
+    "p33": {
+      "id": "p33",
+      "mx": 1056,
+      "my": 46,
+      "name": "Emilia Caramaschi"
+    },
+    "p34": {
+      "id": "p34",
+      "mx": 1313,
+      "my": 51,
+      "name": "Luigi Caramaschi"
+    },
+    "p52": {
+      "id": "p52",
+      "name": "Tomas Vodak",
+      "note": "Kromieriz, Copenhagen",
+      "birth": "13/09/1998"
+    },
+    "p53": {
+      "id": "p53",
+      "mx": 1224,
+      "my": 644,
+      "name": "Nicola Caramaschi",
+      "note": "Suzzara, primo nipote di Paolo Caramaschi",
+      "birth": "2026"
+    },
+    "p54": {
+      "id": "p54",
+      "mx": 1327,
+      "my": 496,
+      "name": "Rebecca"
+    },
+    "p63": {
+      "id": "p63",
+      "mx": -192,
+      "my": 507,
+      "name": "Matteo",
+      "birth": "20.06.1990"
+    },
+    "p65": {
+      "id": "p65",
+      "mx": -235,
+      "my": 643,
+      "name": "Sofia"
+    },
+    "p66": {
+      "id": "p66",
+      "mx": -365,
+      "my": 506,
+      "name": "Jingwen Lin"
+    },
+    "p67": {
+      "id": "p67",
+      "mx": -407,
+      "my": 641,
+      "name": "Emily Lin Caramaschi"
+    },
+    "p68": {
+      "id": "p68",
+      "mx": 697,
+      "my": -81,
+      "name": "Edoardo"
+    }
+  }
+}
