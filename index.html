@@ -557,12 +557,16 @@ function computeLayout(){
     }
   });
 
-  // ---- 5. Remove overlaps within each generation (order preserved) ----
-  // The block recursion already lays siblings out contiguously and couples
-  // side-by-side. Here we ONLY nudge cards apart so nothing overlaps, keeping
-  // the existing left→right order intact (so sibling groups stay together).
-  // Connector lines are free to stretch — only the cards must not collide.
-  const SEP_DIST = CW + GAP;               // min center-to-center distance
+  // ---- 5. Compact each generation row as tightly as possible ----
+  // The block recursion fixes the left→right ORDER (siblings contiguous,
+  // couples adjacent). Here we pull everyone as close together as allowed:
+  // each card snaps to the minimum distance from its left neighbour, closing
+  // the wide gaps the subtree reservation leaves behind. Couples stay at the
+  // tight partner gap; everyone else at SEP_DIST. Connector lines stretch.
+  const SEP_DIST = CW + GAP;               // tight gap between neighbours
+  function arePartners(a,b){
+    return data.unions.some(u=>u.partners.includes(a)&&u.partners.includes(b));
+  }
   const rows = {};
   Object.keys(pos).forEach(id=>{
     const d = pos[id].depth;
@@ -571,8 +575,10 @@ function computeLayout(){
   Object.keys(rows).forEach(d=>{
     const row = rows[d].sort((a,b)=>pos[a].x-pos[b].x);
     for(let i=1;i<row.length;i++){
-      const prev=pos[row[i-1]], cur=pos[row[i]];
-      if(cur.x - prev.x < SEP_DIST) cur.x = prev.x + SEP_DIST;
+      const prev=row[i-1], cur=row[i];
+      // collapse every neighbour to the tight distance — pulls siblings,
+      // couples and cousins as close together as possible without overlap
+      pos[cur].x = pos[prev].x + SEP_DIST;
     }
   });
 
