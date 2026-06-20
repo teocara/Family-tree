@@ -582,6 +582,39 @@ function computeLayout(){
     }
   });
 
+  // ---- 5c. Centre parents over the middle of their children ----
+  // Work the rows from the BOTTOM up. For each couple/parent that has kids,
+  // figure out the children's midpoint, then slide the parent toward it.
+  // To keep the row order and avoid overlaps, we move the parent (and its
+  // partner) together and push any right-hand neighbours along as a rigid
+  // block — never reordering, never colliding. Lines may slant; that's fine.
+  const depthsDesc = Object.keys(rows).map(Number).sort((a,b)=>b-a);
+  function coupleCentre(anchor,spouse){
+    return (spouse&&pos[spouse]&&pos[spouse].depth===pos[anchor].depth)
+      ? (pos[anchor].x+pos[spouse].x)/2 : pos[anchor].x;
+  }
+  depthsDesc.forEach(d=>{
+    const row = rows[d].sort((a,b)=>pos[a].x-pos[b].x);
+    // unions whose anchor lives on this row, left→right by anchor position
+    const us = data.unions
+      .filter(u=>{ const a=u.partners[anchorIndex(u)]; return pos[a]&&pos[a].depth===d&&u.children.some(c=>pos[c]); })
+      .sort((A,B)=>pos[A.partners[anchorIndex(A)]].x-pos[B.partners[anchorIndex(B)]].x);
+    us.forEach(u=>{
+      const ai=anchorIndex(u), anchor=u.partners[ai], spouse=u.partners[1-ai];
+      const kids=u.children.filter(c=>pos[c]);
+      if(!kids.length) return;
+      const kidMid=(Math.min(...kids.map(c=>pos[c].x))+Math.max(...kids.map(c=>pos[c].x)))/2;
+      const cur=coupleCentre(anchor,spouse);
+      const shift=kidMid-cur;
+      if(shift<=0) return;                 // only ever slide right
+      // slide the anchor, its partner, and everyone to their right rigidly
+      const startIdx=row.indexOf(anchor);
+      const partnerIdx=spouse?row.indexOf(spouse):-1;
+      const from=Math.min(...[startIdx,partnerIdx].filter(i=>i>=0));
+      for(let i=from;i<row.length;i++) pos[row[i]].x+=shift;
+    });
+  });
+
   // ---- 6. Center the whole tree around x=0 for a tidy initial view ----
   const allX = Object.values(pos).map(p=>p.x);
   if(allX.length){
