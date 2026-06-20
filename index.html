@@ -367,27 +367,37 @@ function computeLayout(){
   }
 
   // ---- 2. Assign generations (depth) ----
-  // Root people: bloodline people with no birthUnion. Their depth=0.
-  // Children get parentDepth+1. Married-in partners inherit spouse depth.
+  // STRICT RULE: the oldest generation is at the top (depth 0); every child
+  // sits exactly ONE row below their parents; spouses share the same row.
+  // A person's depth is driven by their BLOODLINE position — a married-in
+  // spouse is pulled DOWN to their partner's generation and can never float
+  // to the top. We relax depths iteratively until stable so the result does
+  // not depend on the declaration order of unions/persons.
   const depth={};
-  function setDepth(pid,d){ if(depth[pid]===undefined||d<depth[pid]) depth[pid]=d; }
-
-  // roots = people not a child anywhere
+  // Seed: people who are not a child of any union (true ancestors) start at 0.
   const roots=allIds.filter(id=>!birthUnion[id]);
-  const q=[];
-  roots.forEach(r=>{ setDepth(r,0); q.push(r); });
-  let guard=0;
-  while(q.length && guard++<20000){
-    const id=q.shift(); const d=depth[id];
-    headedUnion(id) && (()=>{})();
-    unionsWithPartner(id).forEach(u=>{
-      // partner shares depth
-      u.partners.forEach(pr=>{ if(depth[pr]===undefined){ setDepth(pr,d); q.push(pr); } });
-      // children one deeper
-      u.children.forEach(ch=>{ if(depth[ch]===undefined){ setDepth(ch,d+1); q.push(ch); } });
+  allIds.forEach(id=>{ depth[id] = birthUnion[id] ? null : 0; });
+
+  let changed=true, guard=0;
+  while(changed && guard++<10000){
+    changed=false;
+    data.unions.forEach(u=>{
+      const known = u.partners.map(p=>depth[p]).filter(d=>d!=null);
+      // Partners share the deepest known generation among the couple.
+      if(known.length){
+        const coupleD=Math.max(...known);
+        u.partners.forEach(p=>{
+          if(depth[p]==null || depth[p]<coupleD){ depth[p]=coupleD; changed=true; }
+        });
+        // Children sit exactly one row below the couple.
+        u.children.forEach(ch=>{
+          if(depth[ch]==null || depth[ch]<coupleD+1){ depth[ch]=coupleD+1; changed=true; }
+        });
+      }
     });
   }
-  allIds.forEach(id=>{ if(depth[id]===undefined) setDepth(id,0); });
+  // Anyone still unresolved (isolated / married-in with no in-tree partner) → 0.
+  allIds.forEach(id=>{ if(depth[id]==null) depth[id]=0; });
 
   // ---- 3. Tidy-tree x-placement (bottom-up, collision-free) ----
   // We lay out "family blocks". A block is led by an anchor person; it
@@ -400,7 +410,11 @@ function computeLayout(){
 
   function setPos(pid,cx,d){
     if(!persons[pid]) return;
-    pos[pid]={x:cx,y:d*ROW,depth:d};
+    // Vertical row is ALWAYS the person's true generation (global depth),
+    // so the eldest stay on top and each generation is exactly one row below,
+    // regardless of how the layout recursion descends.
+    const gen = depth[pid]!=null ? depth[pid] : d;
+    pos[pid]={x:cx,y:gen*ROW,depth:gen};
     placed[pid]=true;
   }
 
@@ -468,10 +482,10 @@ function computeLayout(){
     const coupleW = hasSpouse ? (CW+GAP+CW) : CW;
 
     // children of this union — but skip those who married into another family
-    // (they get drawn beside their spouse instead). Siblings with the most
-    // descendants are pushed to the outer edges (rule: busiest on the sides).
+    // (they get drawn beside their spouse instead). Keep natural declared
+    // order so siblings read left→right as entered.
     const kids = u
-      ? arrangeOutermost(u.children.filter(c=>persons[c] && !marriedInElsewhere(c)))
+      ? u.children.filter(c=>persons[c] && !marriedInElsewhere(c))
       : [];
 
     if(kids.length===0){
@@ -520,8 +534,7 @@ function computeLayout(){
   // standalone roots (no union) at depth 0
   roots.forEach(r=>{ if(!seen.has(r) && depth[r]===0){ topAnchors.push(r); seen.add(r); } });
 
-  // Busiest top-level families also go to the outer edges.
-  arrangeOutermost(topAnchors).forEach(a=>{
+  topAnchors.forEach(a=>{
     if(!placed[a]){ layoutBlock(a,0); nextFreeX+=FAM_GAP; }
   });
   // any unplaced (married-in roots, isolated) — place as leaves
