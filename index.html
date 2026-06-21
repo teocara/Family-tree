@@ -121,6 +121,16 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.2rem,2.6vw,1.9rem);font-weight:6
 body.bar-hidden header,
 body.bar-hidden .controls{display:none;}
 
+/* Mobile-only floating Save button. Hidden on desktop (toolbar has Salva). */
+.save-fab{display:none;position:fixed;bottom:1rem;right:1rem;z-index:30;
+  font-family:'Cinzel',serif;font-size:.9rem;letter-spacing:.04em;
+  padding:.85rem 1.3rem;border-radius:13px;border:1px solid var(--gold);
+  background:var(--gold);color:#fff;font-weight:600;cursor:pointer;
+  box-shadow:0 4px 16px rgba(139,105,20,.35);}
+.save-fab:active{transform:scale(.96);}
+.save-fab.dirty{background:var(--ok);border-color:var(--ok);
+  animation:pulse 2s infinite;}
+
 /* ════════════════════════════════════════════════════════════════
    MOBILE / TOUCH (phones ≤ 640px)
    The whole page is a flex column, so the tree (#wrap) always fills
@@ -131,8 +141,9 @@ body.bar-hidden .controls{display:none;}
    ════════════════════════════════════════════════════════════════ */
 @media (max-width:640px){
   /* No top bar, no toggle, no bottom hint chips, no help button —
-     the tree alone fills the entire screen. */
+     the tree alone fills the entire screen. Just one floating Save button. */
   header, .controls, .bar-toggle, .hint, .help-fab{display:none !important;}
+  .save-fab{display:block;}
 
   /* Larger, easier-to-read cards on small screens */
   .cname{font-size:1.18rem;}
@@ -153,6 +164,7 @@ body.bar-hidden .controls{display:none;}
    ════════════════════════════════════════════════════════════════ */
 @media (max-height:500px) and (orientation:landscape){
   header, .controls, .bar-toggle, .hint, .help-fab{display:none !important;}
+  .save-fab{display:block;bottom:.5rem;right:.5rem;padding:.6rem 1rem;font-size:.8rem;}
 }
 </style>
 </head>
@@ -160,6 +172,9 @@ body.bar-hidden .controls{display:none;}
 
 <!-- Floating toggle to show/hide the whole top bar (header + toolbar) -->
 <button class="bar-toggle" id="bar-toggle" onclick="toggleBar()" title="Mostra/nascondi barra">≡</button>
+
+<!-- Mobile-only floating Save button (the toolbar is hidden on phones) -->
+<button class="save-fab" id="save-fab" onclick="saveTree()" title="Salva">💾 Salva</button>
 
 <header>
   <p class="subtitle">Memoria e Radici</p>
@@ -806,12 +821,16 @@ function markDirty(){
   dirty=true;
   const b=document.getElementById('save-btn');
   if(b) b.classList.add('dirty');
+  const f=document.getElementById('save-fab');
+  if(f) f.classList.add('dirty');
   setS('Modifiche non salvate');
 }
 function markSaved(){
   dirty=false;
   const b=document.getElementById('save-btn');
   if(b) b.classList.remove('dirty');
+  const f=document.getElementById('save-fab');
+  if(f) f.classList.remove('dirty');
 }
 function toggleHint(){
   document.getElementById('hint').classList.toggle('hidden');
