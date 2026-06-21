@@ -109,6 +109,18 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.2rem,2.6vw,1.9rem);font-weight:6
 ::-webkit-scrollbar-track{background:var(--bg);}
 ::-webkit-scrollbar-thumb{background:var(--card-b);border-radius:3px;}
 
+/* Floating button to reveal/collapse the top bar. Hidden on desktop;
+   shown on phones where screen space is precious. */
+.bar-toggle{display:none;position:fixed;top:.55rem;left:.55rem;z-index:30;
+  width:42px;height:42px;border-radius:11px;border:1px solid var(--card-b);
+  background:rgba(255,252,245,.96);color:var(--gold);font-size:1.3rem;line-height:1;
+  cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.16);backdrop-filter:blur(6px);}
+.bar-toggle:active{transform:scale(.94);}
+/* When the bar is collapsed, header + controls are removed from layout so the
+   tree fills the entire screen. */
+body.bar-hidden header,
+body.bar-hidden .controls{display:none;}
+
 /* ════════════════════════════════════════════════════════════════
    MOBILE / TOUCH (phones ≤ 640px)
    The whole page is a flex column, so the tree (#wrap) always fills
@@ -118,6 +130,7 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.2rem,2.6vw,1.9rem);font-weight:6
    into many rows that eat the screen.
    ════════════════════════════════════════════════════════════════ */
 @media (max-width:640px){
+  .bar-toggle{display:block;}
   header{padding:.6rem 1rem .45rem;}
   .subtitle{font-size:.72rem;letter-spacing:.12em;margin-bottom:.1rem;}
   h1{font-size:1.15rem;letter-spacing:.04em;}
@@ -161,6 +174,7 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.2rem,2.6vw,1.9rem);font-weight:6
    toolbar in one compact scrollable row.
    ════════════════════════════════════════════════════════════════ */
 @media (max-height:500px) and (orientation:landscape){
+  .bar-toggle{display:block;top:.4rem;left:.4rem;width:38px;height:38px;font-size:1.15rem;}
   .subtitle{display:none;}
   header{padding:.18rem .8rem;border-bottom:none;}
   h1{font-size:.92rem;letter-spacing:.03em;}
@@ -176,6 +190,9 @@ h1{font-family:'Cinzel',serif;font-size:clamp(1.2rem,2.6vw,1.9rem);font-weight:6
 </style>
 </head>
 <body>
+
+<!-- Floating toggle to show/hide the whole top bar (header + toolbar) -->
+<button class="bar-toggle" id="bar-toggle" onclick="toggleBar()" title="Mostra/nascondi barra">≡</button>
 
 <header>
   <p class="subtitle">Memoria e Radici</p>
@@ -832,6 +849,12 @@ function markSaved(){
 function toggleHint(){
   document.getElementById('hint').classList.toggle('hidden');
 }
+// Show/hide the whole top bar (header + toolbar) to give the tree the full screen.
+function toggleBar(){
+  document.body.classList.toggle('bar-hidden');
+  // the tree area resizes, so refit after the layout settles
+  setTimeout(zoomFit,60);
+}
 function toast(m,type){
   const el=document.getElementById('toast');
   el.textContent=m;el.className='toast show'+(type==='err'?' err':type==='ok'?' ok':'');
@@ -1258,6 +1281,11 @@ document.getElementById('f-name').addEventListener('keydown',e=>{if(e.key==='Ent
 // ════════════════════════════════════════════════════════════════
 // hide cloud-only refresh button when running local-only
 if(!cloudOn()){ const rb=document.getElementById('refresh-btn'); if(rb) rb.style.display='none'; }
+// On phones, start with the top bar collapsed for maximum tree space (the ≡
+// button brings it back). Desktop always shows the bar.
+if(window.matchMedia('(max-width:640px), (max-height:500px) and (orientation:landscape)').matches){
+  document.body.classList.add('bar-hidden');
+}
 loadTree();
 </script>
 </body>
