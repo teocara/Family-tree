@@ -130,32 +130,13 @@ body.bar-hidden .controls{display:none;}
    into many rows that eat the screen.
    ════════════════════════════════════════════════════════════════ */
 @media (max-width:640px){
-  .bar-toggle{display:block;}
-  header{padding:.6rem 1rem .45rem;}
-  .subtitle{font-size:.72rem;letter-spacing:.12em;margin-bottom:.1rem;}
-  h1{font-size:1.15rem;letter-spacing:.04em;}
-
-  /* Toolbar: one row that scrolls horizontally, bigger tap targets */
-  .controls{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;
-    gap:.4rem;padding:.5rem .7rem;-webkit-overflow-scrolling:touch;
-    scrollbar-width:none;}
-  .controls::-webkit-scrollbar{display:none;}
-  .ctrl-group{flex:0 0 auto;}
-  .ctrl-divider{display:none;}
-  .btn{font-size:.78rem;padding:.6rem .9rem;flex:0 0 auto;}
-  .btn.ghost{font-size:.72rem;}
-  .status{flex:0 0 auto;font-size:.74rem;}
+  /* No top bar, no toggle, no bottom hint chips, no help button —
+     the tree alone fills the entire screen. */
+  header, .controls, .bar-toggle, .hint, .help-fab{display:none !important;}
 
   /* Larger, easier-to-read cards on small screens */
   .cname{font-size:1.18rem;}
   .cdates{font-size:.9rem;}
-
-  /* Bigger floating help + further from thumb edge */
-  .help-fab{width:46px;height:46px;font-size:1.25rem;bottom:.8rem;right:.8rem;}
-
-  /* Hints stack and stay readable */
-  .hint{bottom:.7rem;gap:.35rem;}
-  .hint-item{font-size:.7rem;padding:.28rem .65rem;}
 
   /* Full-width touch-friendly quick-add toolbar */
   .quickbar{min-width:210px;}
@@ -168,24 +149,10 @@ body.bar-hidden .controls{display:none;}
 }
 
 /* ════════════════════════════════════════════════════════════════
-   LANDSCAPE PHONE (short viewport) — reclaim vertical space.
-   Height is the scarce dimension here, so the top bar is squeezed to
-   the bare minimum: subtitle hidden, header collapsed to a thin line,
-   toolbar in one compact scrollable row.
+   LANDSCAPE PHONE (short viewport) — tree only, no chrome at all.
    ════════════════════════════════════════════════════════════════ */
 @media (max-height:500px) and (orientation:landscape){
-  .bar-toggle{display:block;top:.4rem;left:.4rem;width:38px;height:38px;font-size:1.15rem;}
-  .subtitle{display:none;}
-  header{padding:.18rem .8rem;border-bottom:none;}
-  h1{font-size:.92rem;letter-spacing:.03em;}
-  .controls{padding:.28rem .6rem;gap:.32rem;}
-  .btn{font-size:.7rem;padding:.34rem .65rem;}
-  .btn.ghost{font-size:.66rem;}
-  .status{font-size:.68rem;padding:.1rem .4rem;}
-  .help-fab{width:38px;height:38px;font-size:1.05rem;bottom:.5rem;right:.5rem;}
-  /* Hide hints by default to save space, but still let the ? button show them */
-  .hint.hidden{display:none;}
-  .hint-item{font-size:.64rem;padding:.22rem .5rem;}
+  header, .controls, .bar-toggle, .hint, .help-fab{display:none !important;}
 }
 </style>
 </head>
