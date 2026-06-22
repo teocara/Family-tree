@@ -1,6 +1,6 @@
 {
-  "nextP": 86,
-  "nextU": 47,
+  "nextP": 87,
+  "nextU": 48,
   "unions": [
     {
       "id": "u1",
@@ -112,8 +112,7 @@
     {
       "id": "u37",
       "children": [
-        "p30",
-        "p70"
+        "p30"
       ],
       "partners": []
     },
@@ -201,6 +200,14 @@
         "p83",
         "p84"
       ]
+    },
+    {
+      "id": "u47",
+      "children": [],
+      "partners": [
+        "p85",
+        "p86"
+      ]
     }
   ],
   "persons": {
@@ -212,8 +219,8 @@
     },
     "p2": {
       "id": "p2",
-      "mx": 923,
-      "my": 198,
+      "mx": 972,
+      "my": 224,
       "name": "Rosa Rossato"
     },
     "p3": {
@@ -222,13 +229,15 @@
     },
     "p4": {
       "id": "p4",
+      "mx": 123,
+      "my": 435,
       "name": "Chiara Molinari",
       "bridge": "Molinari"
     },
     "p5": {
       "id": "p5",
-      "mx": 350,
-      "my": 605,
+      "mx": 277,
+      "my": 602,
       "name": "Michele",
       "note": "Born in Mantova",
       "birth": "17/08/1992"
@@ -243,14 +252,14 @@
     },
     "p11": {
       "id": "p11",
-      "mx": 514,
-      "my": 218,
+      "mx": 84,
+      "my": 205,
       "name": "Giulio Molinari"
     },
     "p12": {
       "id": "p12",
-      "mx": 704,
-      "my": 216,
+      "mx": 244,
+      "my": 232,
       "name": "Edda Molinari"
     },
     "p13": {
@@ -285,8 +294,8 @@
     },
     "p27": {
       "id": "p27",
-      "mx": 542,
-      "my": 614,
+      "mx": 547,
+      "my": 613,
       "name": "Matteo"
     },
     "p28": {
@@ -297,18 +306,20 @@
     },
     "p30": {
       "id": "p30",
-      "name": "Vitello Caramaschi",
+      "name": "Vitellio Caramaschi",
       "note": "nonno"
     },
     "p31": {
       "id": "p31",
+      "mx": 1504,
+      "my": 38,
       "name": "Erina",
       "note": "nonna"
     },
     "p32": {
       "id": "p32",
-      "mx": 465,
-      "my": 35,
+      "mx": 500,
+      "my": 31,
       "name": "Santina Rossato"
     },
     "p33": {
@@ -325,24 +336,24 @@
     },
     "p52": {
       "id": "p52",
-      "mx": 162,
-      "my": 607,
+      "mx": 84,
+      "my": 657,
       "name": "Tomas Vodak",
       "note": "Kromieriz, Copenhagen",
       "birth": "13/09/1998"
     },
     "p53": {
       "id": "p53",
-      "mx": 813,
-      "my": 695,
+      "mx": 802,
+      "my": 702,
       "name": "Nicola Caramaschi",
       "note": "Born in Suzzara, Mantova",
       "birth": "2026"
     },
     "p54": {
       "id": "p54",
-      "mx": 908,
-      "my": 614,
+      "mx": 868,
+      "my": 638,
       "name": "Rebecca"
     },
     "p63": {
@@ -355,32 +366,32 @@
     },
     "p65": {
       "id": "p65",
-      "mx": -378,
-      "my": 771,
+      "mx": -377,
+      "my": 777,
       "name": "Sofia Lin",
       "note": "Born in Denmark",
       "birth": "24/01/2019"
     },
     "p66": {
       "id": "p66",
-      "mx": -381,
-      "my": 598,
+      "mx": -329,
+      "my": 634,
       "name": "Jingwen Lin",
       "note": "Born in Zhanjiang, China. Living in Denmark.",
       "birth": "17/03/1983"
     },
     "p67": {
       "id": "p67",
-      "mx": -197,
-      "my": 749,
-      "name": "Emily Lin Caramaschi",
+      "mx": -188,
+      "my": 775,
+      "name": "Emily Lin",
       "note": "Born in Denmark",
       "birth": "05/12/2021"
     },
     "p68": {
       "id": "p68",
-      "mx": 683,
-      "my": 31,
+      "mx": 657,
+      "my": 52,
       "name": "Edoardo"
     },
     "p69": {
@@ -388,12 +399,6 @@
       "mx": 1507,
       "my": 201,
       "name": "Anna"
-    },
-    "p70": {
-      "id": "p70",
-      "mx": 894,
-      "my": 7,
-      "name": "Don Luigi"
     },
     "p71": {
       "id": "p71",
@@ -481,6 +486,12 @@
       "my": 527,
       "name": "Fon",
       "birth": "1986"
+    },
+    "p86": {
+      "id": "p86",
+      "mx": -454,
+      "my": 560,
+      "name": "Amei"
     }
   }
 }
