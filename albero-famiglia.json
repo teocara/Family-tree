@@ -1,6 +1,6 @@
 {
-  "nextP": 87,
-  "nextU": 48,
+  "nextP": 93,
+  "nextU": 51,
   "unions": [
     {
       "id": "u1",
@@ -208,13 +208,43 @@
         "p85",
         "p86"
       ]
+    },
+    {
+      "id": "u48",
+      "children": [
+        "p52",
+        "p89"
+      ],
+      "partners": [
+        "p87",
+        "p88"
+      ]
+    },
+    {
+      "id": "u49",
+      "children": [
+        "p91"
+      ],
+      "partners": [
+        "p89",
+        "p90"
+      ]
+    },
+    {
+      "id": "u50",
+      "children": [
+        "p91"
+      ],
+      "partners": [
+        "p92"
+      ]
     }
   ],
   "persons": {
     "p1": {
       "id": "p1",
-      "mx": 1107,
-      "my": 195,
+      "mx": 1106,
+      "my": 194,
       "name": "Alberto"
     },
     "p2": {
@@ -225,6 +255,8 @@
     },
     "p3": {
       "id": "p3",
+      "mx": -18,
+      "my": 409,
       "name": "Raffaele"
     },
     "p4": {
@@ -258,8 +290,8 @@
     },
     "p12": {
       "id": "p12",
-      "mx": 244,
-      "my": 232,
+      "mx": 298,
+      "my": 139,
       "name": "Edda Molinari"
     },
     "p13": {
@@ -306,13 +338,15 @@
     },
     "p30": {
       "id": "p30",
+      "mx": 1533,
+      "my": -44,
       "name": "Vitellio Caramaschi",
       "note": "nonno"
     },
     "p31": {
       "id": "p31",
-      "mx": 1504,
-      "my": 38,
+      "mx": 1722,
+      "my": -1,
       "name": "Erina",
       "note": "nonna"
     },
@@ -336,8 +370,8 @@
     },
     "p52": {
       "id": "p52",
-      "mx": 84,
-      "my": 657,
+      "mx": 265,
+      "my": 1083,
       "name": "Tomas Vodak",
       "note": "Kromieriz, Copenhagen",
       "birth": "13/09/1998"
@@ -492,6 +526,44 @@
       "mx": -454,
       "my": 560,
       "name": "Amei"
+    },
+    "p87": {
+      "id": "p87",
+      "mx": 1724,
+      "my": 834,
+      "name": "Dagmar Vodáková",
+      "birth": "1966"
+    },
+    "p88": {
+      "id": "p88",
+      "mx": 1121,
+      "my": 1215,
+      "name": "Petr Vodák",
+      "birth": "1964"
+    },
+    "p89": {
+      "id": "p89",
+      "mx": -1853,
+      "my": 544,
+      "name": "Petr Vodák",
+      "birth": "1993"
+    },
+    "p90": {
+      "id": "p90",
+      "name": "Mirka Vodáková",
+      "birth": "1993"
+    },
+    "p91": {
+      "id": "p91",
+      "mx": -2686,
+      "my": 651,
+      "name": "Daniel Vodák",
+      "birth": "2026"
+    },
+    "p92": {
+      "id": "p92",
+      "name": "Mirka Vodáková",
+      "birth": "1993"
     }
   }
 }
