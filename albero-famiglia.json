@@ -1,6 +1,6 @@
 {
-  "nextP": 93,
-  "nextU": 51,
+  "nextP": 123,
+  "nextU": 63,
   "unions": [
     {
       "id": "u1",
@@ -226,8 +226,7 @@
         "p91"
       ],
       "partners": [
-        "p89",
-        "p90"
+        "p89"
       ]
     },
     {
@@ -238,20 +237,146 @@
       "partners": [
         "p92"
       ]
+    },
+    {
+      "id": "u51",
+      "children": [
+        "p12"
+      ],
+      "partners": [
+        "p93",
+        "p94"
+      ]
+    },
+    {
+      "id": "u52",
+      "children": [
+        "p11",
+        "p97",
+        "p98",
+        "p99",
+        "p107"
+      ],
+      "partners": [
+        "p95",
+        "p96"
+      ]
+    },
+    {
+      "id": "u53",
+      "children": [
+        "p100",
+        "p101"
+      ],
+      "partners": [
+        "p98"
+      ]
+    },
+    {
+      "id": "u54",
+      "children": [
+        "p102"
+      ],
+      "partners": [
+        "p100",
+        "p103"
+      ]
+    },
+    {
+      "id": "u55",
+      "children": [
+        "p105",
+        "p106"
+      ],
+      "partners": [
+        "p97",
+        "p104"
+      ]
+    },
+    {
+      "id": "u56",
+      "children": [
+        "p108"
+      ],
+      "partners": [
+        "p107"
+      ]
+    },
+    {
+      "id": "u57",
+      "children": [
+        "p110",
+        "p111"
+      ],
+      "partners": [
+        "p108",
+        "p109"
+      ]
+    },
+    {
+      "id": "u58",
+      "children": [
+        "p112",
+        "p113"
+      ],
+      "partners": [
+        "p105"
+      ]
+    },
+    {
+      "id": "u59",
+      "children": [
+        "p26",
+        "p116"
+      ],
+      "partners": [
+        "p114",
+        "p115"
+      ]
+    },
+    {
+      "id": "u60",
+      "children": [
+        "p118"
+      ],
+      "partners": [
+        "p116",
+        "p117"
+      ]
+    },
+    {
+      "id": "u61",
+      "children": [
+        "p114"
+      ],
+      "partners": [
+        "p119",
+        "p120"
+      ]
+    },
+    {
+      "id": "u62",
+      "children": [
+        "p115"
+      ],
+      "partners": [
+        "p121",
+        "p122"
+      ]
     }
   ],
   "persons": {
     "p1": {
       "id": "p1",
-      "mx": 1106,
-      "my": 194,
+      "mx": 1116,
+      "my": 237,
       "name": "Alberto"
     },
     "p2": {
       "id": "p2",
       "mx": 972,
       "my": 224,
-      "name": "Rosa Rossato"
+      "name": "Rosa Parladore"
     },
     "p3": {
       "id": "p3",
@@ -284,26 +409,26 @@
     },
     "p11": {
       "id": "p11",
-      "mx": 84,
-      "my": 205,
+      "mx": 107,
+      "my": 200,
       "name": "Giulio Molinari"
     },
     "p12": {
       "id": "p12",
-      "mx": 298,
-      "my": 139,
+      "mx": 267,
+      "my": 200,
       "name": "Edda Molinari"
     },
     "p13": {
       "id": "p13",
-      "mx": 757,
-      "my": 419,
+      "mx": 837,
+      "my": 396,
       "name": "Paolo Molinari"
     },
     "p14": {
       "id": "p14",
-      "mx": 950,
-      "my": 418,
+      "mx": 999,
+      "my": 394,
       "name": "Daniela"
     },
     "p15": {
@@ -326,34 +451,34 @@
     },
     "p27": {
       "id": "p27",
-      "mx": 547,
-      "my": 613,
+      "mx": 527,
+      "my": 647,
       "name": "Matteo"
     },
     "p28": {
       "id": "p28",
-      "mx": 728,
-      "my": 605,
-      "name": "Andrea Caramaschi"
+      "mx": 714,
+      "my": 673,
+      "name": "Andrea"
     },
     "p30": {
       "id": "p30",
-      "mx": 1533,
-      "my": -44,
+      "mx": 1392,
+      "my": -72,
       "name": "Vitellio Caramaschi",
       "note": "nonno"
     },
     "p31": {
       "id": "p31",
-      "mx": 1722,
-      "my": -1,
+      "mx": 1579,
+      "my": -81,
       "name": "Erina",
       "note": "nonna"
     },
     "p32": {
       "id": "p32",
-      "mx": 500,
-      "my": 31,
+      "mx": 1042,
+      "my": -9,
       "name": "Santina Rossato"
     },
     "p33": {
@@ -370,24 +495,24 @@
     },
     "p52": {
       "id": "p52",
-      "mx": 265,
-      "my": 1083,
+      "mx": 107,
+      "my": 732,
       "name": "Tomas Vodak",
       "note": "Kromieriz, Copenhagen",
       "birth": "13/09/1998"
     },
     "p53": {
       "id": "p53",
-      "mx": 802,
-      "my": 702,
+      "mx": 818,
+      "my": 757,
       "name": "Nicola Caramaschi",
       "note": "Born in Suzzara, Mantova",
       "birth": "2026"
     },
     "p54": {
       "id": "p54",
-      "mx": 868,
-      "my": 638,
+      "mx": 861,
+      "my": 659,
       "name": "Rebecca"
     },
     "p63": {
@@ -400,8 +525,8 @@
     },
     "p65": {
       "id": "p65",
-      "mx": -377,
-      "my": 777,
+      "mx": -452,
+      "my": 793,
       "name": "Sofia Lin",
       "note": "Born in Denmark",
       "birth": "24/01/2019"
@@ -424,9 +549,9 @@
     },
     "p68": {
       "id": "p68",
-      "mx": 657,
-      "my": 52,
-      "name": "Edoardo"
+      "mx": 888,
+      "my": -22,
+      "name": "Edoardo Parladore"
     },
     "p69": {
       "id": "p69",
@@ -510,8 +635,8 @@
     },
     "p84": {
       "id": "p84",
-      "mx": -372,
-      "my": 400,
+      "mx": -343,
+      "my": 403,
       "name": "Mei Qing Huan"
     },
     "p85": {
@@ -523,47 +648,229 @@
     },
     "p86": {
       "id": "p86",
-      "mx": -454,
-      "my": 560,
+      "mx": -655,
+      "my": 622,
       "name": "Amei"
     },
     "p87": {
       "id": "p87",
-      "mx": 1724,
-      "my": 834,
+      "mx": 469,
+      "my": 811,
       "name": "Dagmar Vodáková",
       "birth": "1966"
     },
     "p88": {
       "id": "p88",
-      "mx": 1121,
-      "my": 1215,
+      "mx": 301,
+      "my": 827,
       "name": "Petr Vodák",
       "birth": "1964"
     },
     "p89": {
       "id": "p89",
-      "mx": -1853,
-      "my": 544,
+      "mx": 657,
+      "my": 959,
       "name": "Petr Vodák",
-      "birth": "1993"
-    },
-    "p90": {
-      "id": "p90",
-      "name": "Mirka Vodáková",
       "birth": "1993"
     },
     "p91": {
       "id": "p91",
-      "mx": -2686,
-      "my": 651,
+      "mx": 343,
+      "my": 1160,
       "name": "Daniel Vodák",
       "birth": "2026"
     },
     "p92": {
       "id": "p92",
+      "mx": 258,
+      "my": 918,
       "name": "Mirka Vodáková",
       "birth": "1993"
+    },
+    "p93": {
+      "id": "p93",
+      "mx": 66,
+      "my": -20,
+      "name": "Grazie Danieli"
+    },
+    "p94": {
+      "id": "p94",
+      "mx": 244,
+      "my": -16,
+      "name": "Rocco Pio Zanetti",
+      "note": "Commerciante"
+    },
+    "p95": {
+      "id": "p95",
+      "mx": -391,
+      "my": 18,
+      "name": "Vincenzo Molinari",
+      "note": "Cavaliere, ingegnere"
+    },
+    "p96": {
+      "id": "p96",
+      "mx": -206,
+      "my": 34,
+      "name": "Bice Superchi",
+      "death": "1933"
+    },
+    "p97": {
+      "id": "p97",
+      "mx": -1195,
+      "my": 381,
+      "name": "Alfredo"
+    },
+    "p98": {
+      "id": "p98",
+      "mx": -343,
+      "my": 192,
+      "name": "Carlo"
+    },
+    "p99": {
+      "id": "p99",
+      "mx": -122,
+      "my": 151,
+      "name": "Alberto"
+    },
+    "p100": {
+      "id": "p100",
+      "mx": -986,
+      "my": 594,
+      "name": "Alberto"
+    },
+    "p101": {
+      "id": "p101",
+      "mx": -821,
+      "my": 402,
+      "name": "Marco"
+    },
+    "p102": {
+      "id": "p102",
+      "mx": -874,
+      "my": 829,
+      "name": "Arianna"
+    },
+    "p103": {
+      "id": "p103",
+      "mx": -832,
+      "my": 550,
+      "name": "Angela"
+    },
+    "p104": {
+      "id": "p104",
+      "mx": -1419,
+      "my": 384,
+      "name": "Silvana"
+    },
+    "p105": {
+      "id": "p105",
+      "mx": -1265,
+      "my": 534,
+      "name": "Cristina"
+    },
+    "p106": {
+      "id": "p106",
+      "mx": -1417,
+      "my": 607,
+      "name": "Umberto"
+    },
+    "p107": {
+      "id": "p107",
+      "mx": -570,
+      "my": 68,
+      "name": "Anna Gorla"
+    },
+    "p108": {
+      "id": "p108",
+      "mx": -1609,
+      "my": 472,
+      "name": "Franca"
+    },
+    "p109": {
+      "id": "p109",
+      "mx": -1797,
+      "my": 460,
+      "name": "Ovidio",
+      "note": "Imprenditore"
+    },
+    "p110": {
+      "id": "p110",
+      "mx": -1604,
+      "my": 570,
+      "name": "Anna"
+    },
+    "p111": {
+      "id": "p111",
+      "mx": -1801,
+      "my": 580,
+      "name": "Carlo"
+    },
+    "p112": {
+      "id": "p112",
+      "mx": -1375,
+      "my": 692,
+      "name": "Laura",
+      "note": "PhD Biology, Denmark"
+    },
+    "p113": {
+      "id": "p113",
+      "mx": -1175,
+      "my": 725,
+      "name": "Francesco"
+    },
+    "p114": {
+      "id": "p114",
+      "mx": 494,
+      "my": 221,
+      "name": "Antonio Copelli"
+    },
+    "p115": {
+      "id": "p115",
+      "mx": 651,
+      "my": 257,
+      "name": "Luigia"
+    },
+    "p116": {
+      "id": "p116",
+      "mx": 607,
+      "my": 469,
+      "name": "Ilaria"
+    },
+    "p117": {
+      "id": "p117",
+      "mx": 739,
+      "my": 481,
+      "name": "Bellani Massimo"
+    },
+    "p118": {
+      "id": "p118",
+      "mx": 584,
+      "my": 562,
+      "name": "Alessia"
+    },
+    "p119": {
+      "id": "p119",
+      "mx": 455,
+      "my": 5,
+      "name": "Copelli Giuseppe"
+    },
+    "p120": {
+      "id": "p120",
+      "mx": 637,
+      "my": 30,
+      "name": "Maria Fornasari"
+    },
+    "p121": {
+      "id": "p121",
+      "mx": 672,
+      "my": 140,
+      "name": "Rino Zampolli"
+    },
+    "p122": {
+      "id": "p122",
+      "mx": 838,
+      "my": 152,
+      "name": "Nerina Melli"
     }
   }
 }
