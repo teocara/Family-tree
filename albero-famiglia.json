@@ -1,6 +1,6 @@
 {
-  "nextP": 123,
-  "nextU": 63,
+  "nextP": 127,
+  "nextU": 65,
   "unions": [
     {
       "id": "u1",
@@ -362,6 +362,26 @@
       "partners": [
         "p121",
         "p122"
+      ]
+    },
+    {
+      "id": "u63",
+      "children": [
+        "p32"
+      ],
+      "partners": [
+        "p123",
+        "p124"
+      ]
+    },
+    {
+      "id": "u64",
+      "children": [
+        "p68"
+      ],
+      "partners": [
+        "p125",
+        "p126"
       ]
     }
   ],
@@ -871,6 +891,30 @@
       "mx": 838,
       "my": 152,
       "name": "Nerina Melli"
+    },
+    "p123": {
+      "id": "p123",
+      "mx": 985,
+      "my": -159,
+      "name": "Augusto Rossato"
+    },
+    "p124": {
+      "id": "p124",
+      "mx": 1133,
+      "my": -136,
+      "name": "Rosa Sinico"
+    },
+    "p125": {
+      "id": "p125",
+      "mx": 733,
+      "my": -161,
+      "name": "Angelo Parladore"
+    },
+    "p126": {
+      "id": "p126",
+      "mx": 567,
+      "my": -144,
+      "name": "Maria"
     }
   }
 }
