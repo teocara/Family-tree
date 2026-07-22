@@ -1,6 +1,6 @@
 {
-  "nextP": 127,
-  "nextU": 65,
+  "nextP": 139,
+  "nextU": 67,
   "unions": [
     {
       "id": "u1",
@@ -112,9 +112,16 @@
     {
       "id": "u37",
       "children": [
-        "p30"
+        "p30",
+        "p127",
+        "p128",
+        "p129",
+        "p130"
       ],
-      "partners": []
+      "partners": [
+        "p133",
+        "p134"
+      ]
     },
     {
       "id": "u38",
@@ -123,7 +130,8 @@
         "p72"
       ],
       "partners": [
-        "p69"
+        "p69",
+        "p138"
       ]
     },
     {
@@ -132,7 +140,8 @@
         "p73"
       ],
       "partners": [
-        "p33"
+        "p33",
+        "p137"
       ]
     },
     {
@@ -144,7 +153,8 @@
         "p77"
       ],
       "partners": [
-        "p34"
+        "p34",
+        "p132"
       ]
     },
     {
@@ -180,7 +190,8 @@
         "p81"
       ],
       "partners": [
-        "p75"
+        "p75",
+        "p131"
       ]
     },
     {
@@ -383,19 +394,39 @@
         "p125",
         "p126"
       ]
+    },
+    {
+      "id": "u65",
+      "children": [
+        "p133"
+      ],
+      "partners": [
+        "p135"
+      ]
+    },
+    {
+      "id": "u66",
+      "children": [
+        "p135"
+      ],
+      "partners": [
+        "p136"
+      ]
     }
   ],
   "persons": {
     "p1": {
       "id": "p1",
-      "mx": 1116,
-      "my": 237,
-      "name": "Alberto"
+      "mx": 1086,
+      "my": 138,
+      "name": "Alberto",
+      "birth": "1931",
+      "death": "2022"
     },
     "p2": {
       "id": "p2",
-      "mx": 972,
-      "my": 224,
+      "mx": 984,
+      "my": 212,
       "name": "Rosa Parladore"
     },
     "p3": {
@@ -449,7 +480,7 @@
       "id": "p14",
       "mx": 999,
       "my": 394,
-      "name": "Daniela"
+      "name": "Daniela Sissa"
     },
     "p15": {
       "id": "p15",
@@ -483,35 +514,37 @@
     },
     "p30": {
       "id": "p30",
-      "mx": 1392,
-      "my": -72,
+      "mx": 1606,
+      "my": -208,
       "name": "Vitellio Caramaschi",
       "note": "nonno"
     },
     "p31": {
       "id": "p31",
-      "mx": 1579,
-      "my": -81,
+      "mx": 1460,
+      "my": -125,
       "name": "Erina",
       "note": "nonna"
     },
     "p32": {
       "id": "p32",
-      "mx": 1042,
-      "my": -9,
+      "mx": 1098,
+      "my": 29,
       "name": "Santina Rossato"
     },
     "p33": {
       "id": "p33",
-      "mx": 1308,
-      "my": 193,
-      "name": "Emilia"
+      "mx": 1650,
+      "my": 127,
+      "name": "Emilia",
+      "birth": "1941"
     },
     "p34": {
       "id": "p34",
-      "mx": 1717,
-      "my": 196,
-      "name": "Adriana"
+      "mx": 2236,
+      "my": 151,
+      "name": "Adriana",
+      "birth": "1924"
     },
     "p52": {
       "id": "p52",
@@ -575,74 +608,75 @@
     },
     "p69": {
       "id": "p69",
-      "mx": 1507,
-      "my": 201,
-      "name": "Anna"
+      "mx": 1478,
+      "my": 81,
+      "name": "Anna",
+      "birth": "1925"
     },
     "p71": {
       "id": "p71",
-      "mx": 1418,
-      "my": 411,
+      "mx": 1272,
+      "my": 366,
       "name": "Don Augusto"
     },
     "p72": {
       "id": "p72",
-      "mx": 1611,
-      "my": 412,
+      "mx": 1447,
+      "my": 361,
       "name": "Carlo"
     },
     "p73": {
       "id": "p73",
-      "mx": 1208,
-      "my": 415,
+      "mx": 1766,
+      "my": 374,
       "name": "Marco Mambrini"
     },
     "p74": {
       "id": "p74",
-      "mx": 1804,
-      "my": 412,
+      "mx": 2028,
+      "my": 348,
       "name": "Bruno Borgonovi"
     },
     "p75": {
       "id": "p75",
-      "mx": 1988,
-      "my": 396,
+      "mx": 2279,
+      "my": 341,
       "name": "Giovanni Borgonovi"
     },
     "p76": {
       "id": "p76",
-      "mx": 2170,
-      "my": 405,
+      "mx": 2564,
+      "my": 333,
       "name": "Mauro Borgonovi"
     },
     "p77": {
       "id": "p77",
-      "mx": 2354,
-      "my": 404,
+      "mx": 2811,
+      "my": 338,
       "name": "Anna Borgonovi"
     },
     "p78": {
       "id": "p78",
-      "mx": 2366,
-      "my": 582,
+      "mx": 2817,
+      "my": 471,
       "name": "Leonardo Cacciarella"
     },
     "p79": {
       "id": "p79",
-      "mx": 1431,
-      "my": 610,
+      "mx": 1750,
+      "my": 590,
       "name": "Filippo"
     },
     "p80": {
       "id": "p80",
-      "mx": 1845,
-      "my": 612,
+      "mx": 2021,
+      "my": 580,
       "name": "Federica"
     },
     "p81": {
       "id": "p81",
-      "mx": 2034,
-      "my": 607,
+      "mx": 2315,
+      "my": 596,
       "name": "Samuele"
     },
     "p83": {
@@ -674,8 +708,8 @@
     },
     "p87": {
       "id": "p87",
-      "mx": 469,
-      "my": 811,
+      "mx": 440,
+      "my": 750,
       "name": "Dagmar Vodáková",
       "birth": "1966"
     },
@@ -915,6 +949,84 @@
       "mx": 567,
       "my": -144,
       "name": "Maria"
+    },
+    "p127": {
+      "id": "p127",
+      "mx": 1822,
+      "my": -166,
+      "name": "Don Luigi"
+    },
+    "p128": {
+      "id": "p128",
+      "mx": 2046,
+      "my": -169,
+      "name": "Enore"
+    },
+    "p129": {
+      "id": "p129",
+      "mx": 2258,
+      "my": -176,
+      "name": "Onorio"
+    },
+    "p130": {
+      "id": "p130",
+      "mx": 2463,
+      "my": -188,
+      "name": "Guido"
+    },
+    "p131": {
+      "id": "p131",
+      "mx": 2381,
+      "my": 458,
+      "name": "Nadia"
+    },
+    "p132": {
+      "id": "p132",
+      "mx": 2452,
+      "my": 124,
+      "name": "Gino Borgonovi"
+    },
+    "p133": {
+      "id": "p133",
+      "mx": 1932,
+      "my": -444,
+      "name": "Odoardo Felice Caramaschi",
+      "birth": "1865",
+      "death": "1908"
+    },
+    "p134": {
+      "id": "p134",
+      "mx": 2126,
+      "my": -420,
+      "name": "Sinfonille Ruggenini"
+    },
+    "p135": {
+      "id": "p135",
+      "mx": 2003,
+      "my": -606,
+      "name": "Luigi V Caramaschi",
+      "birth": "1837",
+      "death": "1912"
+    },
+    "p136": {
+      "id": "p136",
+      "mx": 2012,
+      "my": -800,
+      "name": "Giovanni Battista Caramaschi",
+      "birth": "1803",
+      "death": "1867"
+    },
+    "p137": {
+      "id": "p137",
+      "mx": 1838,
+      "my": 77,
+      "name": "Sauro Mambrini"
+    },
+    "p138": {
+      "id": "p138",
+      "mx": 1305,
+      "my": 54,
+      "name": "Francesco Rossato"
     }
   }
 }
