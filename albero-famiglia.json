@@ -1,5 +1,5 @@
 {
-  "nextP": 139,
+  "nextP": 141,
   "nextU": 67,
   "unions": [
     {
@@ -172,7 +172,8 @@
         "p79"
       ],
       "partners": [
-        "p73"
+        "p73",
+        "p139"
       ]
     },
     {
@@ -181,7 +182,8 @@
         "p80"
       ],
       "partners": [
-        "p74"
+        "p74",
+        "p140"
       ]
     },
     {
@@ -627,8 +629,8 @@
     },
     "p73": {
       "id": "p73",
-      "mx": 1766,
-      "my": 374,
+      "mx": 1721,
+      "my": 424,
       "name": "Marco Mambrini"
     },
     "p74": {
@@ -1002,16 +1004,16 @@
     },
     "p135": {
       "id": "p135",
-      "mx": 1952,
-      "my": -417,
+      "mx": 2001,
+      "my": -422,
       "name": "Luigi V Caramaschi",
       "birth": "1837",
       "death": "1912"
     },
     "p136": {
       "id": "p136",
-      "mx": 1945,
-      "my": -552,
+      "mx": 1951,
+      "my": -568,
       "name": "Giovanni Battista Caramaschi",
       "birth": "1803",
       "death": "1867"
@@ -1027,6 +1029,18 @@
       "mx": 1262,
       "my": 60,
       "name": "Francesco Rossato"
+    },
+    "p139": {
+      "id": "p139",
+      "mx": 1891,
+      "my": 452,
+      "name": "Elena"
+    },
+    "p140": {
+      "id": "p140",
+      "mx": 2109,
+      "my": 425,
+      "name": "Luisa"
     }
   }
 }
