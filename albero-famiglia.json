@@ -1,6 +1,6 @@
 {
-  "nextP": 141,
-  "nextU": 67,
+  "nextP": 143,
+  "nextU": 69,
   "unions": [
     {
       "id": "u1",
@@ -414,6 +414,23 @@
       "partners": [
         "p136"
       ]
+    },
+    {
+      "id": "u67",
+      "children": [
+        "p141"
+      ],
+      "partners": [
+        "p80"
+      ]
+    },
+    {
+      "id": "u68",
+      "children": [],
+      "partners": [
+        "p76",
+        "p142"
+      ]
     }
   ],
   "persons": {
@@ -558,8 +575,8 @@
     },
     "p53": {
       "id": "p53",
-      "mx": 1797,
-      "my": 723,
+      "mx": 1468,
+      "my": 838,
       "name": "Nicola Caramaschi",
       "note": "Born in Suzzara, Mantova",
       "birth": "2026"
@@ -641,8 +658,8 @@
     },
     "p75": {
       "id": "p75",
-      "mx": 2279,
-      "my": 341,
+      "mx": 2269,
+      "my": 345,
       "name": "Giovanni Borgonovi"
     },
     "p76": {
@@ -653,14 +670,14 @@
     },
     "p77": {
       "id": "p77",
-      "mx": 2811,
-      "my": 338,
+      "mx": 2819,
+      "my": 331,
       "name": "Anna Borgonovi"
     },
     "p78": {
       "id": "p78",
-      "mx": 2817,
-      "my": 471,
+      "mx": 2807,
+      "my": 513,
       "name": "Leonardo Cacciarella"
     },
     "p79": {
@@ -876,26 +893,26 @@
     },
     "p114": {
       "id": "p114",
-      "mx": 494,
-      "my": 221,
+      "mx": 474,
+      "my": 241,
       "name": "Antonio Copelli"
     },
     "p115": {
       "id": "p115",
-      "mx": 651,
-      "my": 257,
+      "mx": 632,
+      "my": 251,
       "name": "Luigia"
     },
     "p116": {
       "id": "p116",
-      "mx": 1262,
-      "my": 526,
+      "mx": 1239,
+      "my": 476,
       "name": "Ilaria"
     },
     "p117": {
       "id": "p117",
-      "mx": 1509,
-      "my": 502,
+      "mx": 1427,
+      "my": 445,
       "name": "Bellani Massimo"
     },
     "p118": {
@@ -978,8 +995,8 @@
     },
     "p131": {
       "id": "p131",
-      "mx": 2364,
-      "my": 408,
+      "mx": 2363,
+      "my": 429,
       "name": "Nadia"
     },
     "p132": {
@@ -1012,8 +1029,8 @@
     },
     "p136": {
       "id": "p136",
-      "mx": 1951,
-      "my": -568,
+      "mx": 1995,
+      "my": -587,
       "name": "Giovanni Battista Caramaschi",
       "birth": "1803",
       "death": "1867"
@@ -1041,6 +1058,18 @@
       "mx": 2109,
       "my": 425,
       "name": "Luisa"
+    },
+    "p141": {
+      "id": "p141",
+      "mx": 2013,
+      "my": 740,
+      "name": "Filippo"
+    },
+    "p142": {
+      "id": "p142",
+      "mx": 2614,
+      "my": 428,
+      "name": "Morena"
     }
   }
 }
